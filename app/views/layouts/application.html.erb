@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GsApi</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<div class="container">
+
+	<div class="navbar navbar-static-top">
+		<div class="navbar-inner">
+			<a class="brand" href="#">GS</a>
+			<ul class="nav">
+				<li><%= link_to "Houses", houses_path %></li>
+				
+			</ul>
+		</div>
+	</div><!--horizontal navbar-->
+
+	<%= yield %>
+
+</div>
+
+</body>
+</html>
