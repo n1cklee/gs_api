@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  value: MyString
+  user_id: 
+  house_id: 
+  scale_id: 
+  item_id: 
+
+two:
+  value: MyString
+  user_id: 
+  house_id: 
+  scale_id: 
+  item_id: 

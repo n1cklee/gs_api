@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130727013622) do
+ActiveRecord::Schema.define(version: 20130812013841) do
+
+  create_table "attributes", force: true do |t|
+    t.string   "value"
+    t.integer  "user_id"
+    t.integer  "house_id"
+    t.integer  "scale_id"
+    t.integer  "item_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "review_id"
+  end
+
+  add_index "attributes", ["house_id"], name: "index_attributes_on_house_id"
+  add_index "attributes", ["item_id"], name: "index_attributes_on_item_id"
+  add_index "attributes", ["review_id"], name: "index_attributes_on_review_id"
+  add_index "attributes", ["scale_id"], name: "index_attributes_on_scale_id"
+  add_index "attributes", ["user_id"], name: "index_attributes_on_user_id"
 
   create_table "houses", force: true do |t|
     t.string   "country"
@@ -24,6 +41,16 @@ ActiveRecord::Schema.define(version: 20130727013622) do
     t.integer  "zip"
   end
 
+  create_table "items", force: true do |t|
+    t.string   "question"
+    t.string   "type"
+    t.integer  "scale_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "items", ["scale_id"], name: "index_items_on_scale_id"
+
   create_table "reviews", force: true do |t|
     t.integer  "user_id"
     t.integer  "house_id"
@@ -34,6 +61,16 @@ ActiveRecord::Schema.define(version: 20130727013622) do
 
   add_index "reviews", ["house_id"], name: "index_reviews_on_house_id"
   add_index "reviews", ["user_id"], name: "index_reviews_on_user_id"
+
+  create_table "scales", force: true do |t|
+    t.string   "description"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "name"
+  end
+
+  add_index "scales", ["user_id"], name: "index_scales_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                  default: "", null: false
