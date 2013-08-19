@@ -1,7 +1,7 @@
 class ScalesController < ApplicationController
 	before_filter :authenticate_user!
 	before_action :set_scale, only: [:show, :edit, :update, :destroy]
-	# before_action :set_reviews, only: :show
+	before_action :set_items, only: :show
 
 	def index
 		@scales = Scale.all
@@ -43,6 +43,12 @@ class ScalesController < ApplicationController
 	private
 		def set_scale
 			@scale = Scale.find(params[:id])
+		end
+
+		def set_items
+			@items = Item.where(scale: @scale)
+		rescue ActiveRecord::RecordNotFound
+			flash[:notice] = "No items were written for this scale."	
 		end
 
 		def scale_params

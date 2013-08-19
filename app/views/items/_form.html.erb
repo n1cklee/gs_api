@@ -1,0 +1,31 @@
+<%= form_for([@scale, @item]) do |f| %>
+	<% if @item.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+			<ul>
+			<% @item.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+
+	<div class="field">
+		<%= f.label :question %>
+		<%= f.text_area :question %>
+		<label>Response Type</label>
+		<label class="radio inline">
+			<input type="radio" name="type" id="type_text" value="text" checked>
+			Text
+		</label>
+		<label class="radio inline">
+			<input type="radio" name="type" id="type_numerical" value="numerical" checked>
+			Numerical
+		</label>
+	</div>
+
+	<div class="actions">
+		<%= f.submit %>
+	</div>
+
+<% end %>

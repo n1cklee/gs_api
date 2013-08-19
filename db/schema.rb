@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20130812013841) do
+ActiveRecord::Schema.define(version: 20130818223417) do
 
   create_table "attributes", force: true do |t|
     t.string   "value"
@@ -42,7 +42,7 @@ ActiveRecord::Schema.define(version: 20130812013841) do
   end
 
   create_table "items", force: true do |t|
-    t.string   "question"
+    t.text     "question"
     t.string   "type"
     t.integer  "scale_id"
     t.datetime "created_at"
